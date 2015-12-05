@@ -1813,7 +1813,6 @@ namespace ts {
         UseOnlyExternalAliasing = 0x00000002,
     }
 
-    /* @internal */
     export const enum SymbolAccessibility {
         Accessible,
         NotAccessible,
@@ -1826,10 +1825,8 @@ namespace ts {
         type: Type;
     }
 
-    /* @internal */
     export type AnyImportSyntax = ImportDeclaration | ImportEqualsDeclaration;
 
-    /* @internal */
     export interface SymbolVisibilityResult {
         accessibility: SymbolAccessibility;
         aliasesToMakeVisible?: AnyImportSyntax[]; // aliases that need to have this symbol visible
@@ -1837,14 +1834,12 @@ namespace ts {
         errorNode?: Node; // optional node that results in error
     }
 
-    /* @internal */
     export interface SymbolAccessiblityResult extends SymbolVisibilityResult {
         errorModuleName?: string; // If the symbol is not visible from module, module's name
     }
 
     /** Indicates how to serialize the name for a TypeReferenceNode when emitting decorator
       * metadata */
-    /* @internal */
     export enum TypeReferenceSerializationKind {
         Unknown,                            // The TypeReferenceNode could not be resolved. The type name
                                             // should be emitted using a safe fallback.
@@ -1863,7 +1858,6 @@ namespace ts {
         ObjectType,                         // The TypeReferenceNode resolves to any other type.
     }
 
-    /* @internal */
     export interface EmitResolver {
         hasGlobalName(name: string): boolean;
         getReferencedExportContainer(node: Identifier): SourceFile | ModuleDeclaration | EnumDeclaration;
@@ -2014,7 +2008,6 @@ namespace ts {
         [index: string]: Symbol;
     }
 
-    /* @internal */
     export const enum NodeCheckFlags {
         TypeChecked                 = 0x00000001,  // Node has been type checked
         LexicalThis                 = 0x00000002,  // Lexical 'this' reference
@@ -2656,7 +2649,6 @@ namespace ts {
         newLength: number;
     }
 
-    /* @internal */
     export interface DiagnosticCollection {
         // Adds a diagnostic to this diagnostic collection.
         add(diagnostic: Diagnostic): void;

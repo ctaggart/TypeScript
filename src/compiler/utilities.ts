@@ -1,6 +1,5 @@
 /// <reference path="sys.ts" />
 
-/* @internal */
 namespace ts {
     export interface ReferencePathMatchResult {
         fileReference?: FileReference;

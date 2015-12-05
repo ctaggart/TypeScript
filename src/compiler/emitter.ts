@@ -2,7 +2,6 @@
 /// <reference path="sourcemap.ts" />
 /// <reference path="declarationEmitter.ts"/>
 
-/* @internal */
 namespace ts {
     export function getResolvedExternalModuleName(host: EmitHost, file: SourceFile): string {
         return file.moduleName || getExternalModuleNameFromPath(host, file.fileName);

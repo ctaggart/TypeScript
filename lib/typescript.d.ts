@@ -1983,6 +1983,24 @@ declare namespace ts {
     function updateSourceFile(sourceFile: SourceFile, newText: string, textChangeRange: TextChangeRange, aggressiveChecks?: boolean): SourceFile;
 }
 declare namespace ts {
+    interface ModuleElementDeclarationEmitInfo {
+        node: Node;
+        outputPos: number;
+        indent: number;
+        asynchronousOutput?: string;
+        subModuleElementDeclarationEmitInfo?: ModuleElementDeclarationEmitInfo[];
+        isVisible?: boolean;
+    }
+    interface DeclarationEmit {
+        reportedDeclarationError: boolean;
+        moduleElementDeclarationEmitInfo: ModuleElementDeclarationEmitInfo[];
+        synchronousDeclarationOutput: string;
+        referencePathsOutput: string;
+    }
+    function getDeclarationDiagnostics(host: EmitHost, resolver: EmitResolver, targetSourceFile: SourceFile): Diagnostic[];
+    function emitDeclarations(host: EmitHost, resolver: EmitResolver, emitterDiagnostics: DiagnosticCollection, declarationFilePath: string, sourceFiles: SourceFile[], isBundledEmit: boolean): DeclarationEmit;
+}
+declare namespace ts {
     function getResolvedExternalModuleName(host: EmitHost, file: SourceFile): string;
     function getExternalModuleNameFromDeclaration(host: EmitHost, resolver: EmitResolver, declaration: ImportEqualsDeclaration | ImportDeclaration | ExportDeclaration): string;
     function emitFiles(resolver: EmitResolver, host: EmitHost, targetSourceFile: SourceFile): EmitResult;

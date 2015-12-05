@@ -1,8 +1,7 @@
 /// <reference path="checker.ts"/>
 
-/* @internal */
 namespace ts {
-    interface ModuleElementDeclarationEmitInfo {
+    export interface ModuleElementDeclarationEmitInfo {
         node: Node;
         outputPos: number;
         indent: number;
@@ -11,7 +10,7 @@ namespace ts {
         isVisible?: boolean;
     }
 
-    interface DeclarationEmit {
+    export interface DeclarationEmit {
         reportedDeclarationError: boolean;
         moduleElementDeclarationEmitInfo: ModuleElementDeclarationEmitInfo[];
         synchronousDeclarationOutput: string;
@@ -40,7 +39,7 @@ namespace ts {
         }
     }
 
-    function emitDeclarations(host: EmitHost, resolver: EmitResolver, emitterDiagnostics: DiagnosticCollection, declarationFilePath: string,
+    export function emitDeclarations(host: EmitHost, resolver: EmitResolver, emitterDiagnostics: DiagnosticCollection, declarationFilePath: string,
         sourceFiles: SourceFile[], isBundledEmit: boolean): DeclarationEmit {
         const newLine = host.getNewLine();
         const compilerOptions = host.getCompilerOptions();
